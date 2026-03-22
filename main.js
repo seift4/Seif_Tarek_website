@@ -507,52 +507,50 @@ updateTime();
 
 
 
+const modelViewer = document.querySelector('#Model');
 
+modelViewer.addEventListener('load', async () => {
+    // 1. الوصول للمادة (Material)
+    const material = modelViewer.model.materials[0];
+    if (!material) return;
 
+    // 2. إنشاء الكانفاس والـ Gradient
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
 
-const modelViewer = document.querySelector('#Model'); // تأكد من الاسم هنا
+    const gradient = ctx.createLinearGradient(0, 0, 0, 512);
+    gradient.addColorStop(0, '#0059ff');
+    gradient.addColorStop(0.3, '#54B6F5');
+    gradient.addColorStop(0.6, '#D6E6F2');
 
-modelViewer.addEventListener('load', () => {
-    
-    const applyGradient = async () => {
-        // 1. التأكد من وجود الموديل والمواد
-        const material = modelViewer.model.materials[0];
-        if (!material) return;
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 512, 512);
 
-        // 2. إنشاء الكانفاس للـ Gradient
-        const canvas = document.createElement('canvas');
-        canvas.width = 512;
-        canvas.height = 512;
-        const ctx = canvas.getContext('2d');
+    try {
+        // 3. تحويل الكانفاس لـ Texture
+        // استخدم toDataURL أو createObjectURL
+        const texture = await modelViewer.createTexture(canvas.toDataURL("image/png"));
 
-        const gradient = ctx.createLinearGradient(0, 0, 0, 512);
-        gradient.addColorStop(0, '#0059ff');
-        gradient.addColorStop(0.3, '#54B6F5');
-        gradient.addColorStop(0.6, '#D6E6F2');
+        // 4. الحل السحري: التأكد من وجود الخصائص قبل التعديل عليها
+        const pbr = material.pbrMetallicRoughness;
 
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 512, 512);
-
-        try {
-            // 3. تحويل الكانفاس لـ Texture خاص بـ model-viewer
-            const texture = await modelViewer.createTexture(canvas.toDataURL());
-            
-            // 4. السحر هنا: لو الموديل ملهوش Texture أصلاً لازم نستخدم الطريقة دي
-            if (material.pbrMetallicRoughness.baseColorTexture) {
-                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-            } else {
-                // لو الموديل "أقرع" ملهوش Texture بنركبله واحد جديد
-                const baseColorTexture = material.pbrMetallicRoughness.baseColorTexture;
-                material.pbrMetallicRoughness.setBaseColorTexture(texture);
-            }
-            
-            // ضبط العوامل عشان اللون يبان بوضوح
-            material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
-            
-        } catch (error) {
-            console.error("فشل في تطبيق الألوان:", error);
+        if (pbr.baseColorTexture) {
+            // لو الموديل فيه Texture أصلاً
+            pbr.baseColorTexture.setTexture(texture);
+        } else {
+            // لو الموديل "سادة" (خامة فقط)، نستخدم هذه الدالة لإجبار المتصفح على إضافة Texture
+            await pbr.baseColorTexture.setTexture(texture);
         }
-    };
 
-    applyGradient();
+        // 5. تصفير العوامل لضمان ظهور الـ Gradient بوضوح
+        pbr.setBaseColorFactor([1, 1, 1, 1]);
+        
+        // إذا كنت تريد الموديل شفاف قليلاً أو ناعم
+        material.setAlphaMode("BLEND");
+
+    } catch (error) {
+        console.error("لم يتم تطبيق الـ Gradient:", error);
+    }
 });
