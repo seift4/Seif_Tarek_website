@@ -71,56 +71,53 @@ revealOnScroll();
 
 
 
-
-
 window.addEventListener('scroll', function() {
-    const img = document.querySelector('.bottom video');
+    const video = document.querySelector('.bottom video');
     const scrollValue = window.scrollY;
+    
+    // تحديد عرض الموبايل (عادة أقل من 768px)
+    const isMobile = window.innerWidth < 768;
+
+    // القيم الابتدائية بناءً على نوع الجهاز
+    const startWidth = isMobile ? window.innerWidth * 0.8 : 400; // 80% من الشاشة للموبايل
+    const startHeight = isMobile ? 20 : 30; // vh
 
     if (scrollValue > 50) { 
-        if (!img.classList.contains('img-fixed')) {
-            img.classList.add('img-fixed');
+        if (!video.classList.contains('img-fixed')) {
+            video.classList.add('img-fixed');
         }
         
-        let newWidth = 400 + (scrollValue * 2.5); 
-        let newHeight = 30 + (scrollValue * 0.2); 
+        // حساب الزيادة تدريجياً
+        let newWidth = startWidth + (scrollValue * 1.5); 
+        let newHeight = startHeight + (scrollValue * 0.1); 
 
-        // التعديل هنا: العرض الأقصى 97% من عرض الشاشة
         const maxWidth = window.innerWidth * 0.97;
-        // الطول الأقصى ممكن نخليه مثلاً 90vh عشان يفضل متناسق
         const maxHeight = 90; 
 
         if (newWidth > maxWidth) newWidth = maxWidth;
         if (newHeight > maxHeight) newHeight = maxHeight;
 
-        img.style.width = newWidth + 'px';
-        img.style.height = newHeight + 'vh';
+        video.style.width = newWidth + 'px';
+        video.style.height = newHeight + 'vh';
 
-        // الحفاظ على الـ Border Radius عشان يبان في الـ 97%
-        if (newWidth > (maxWidth * 0.9)) {
-            img.style.borderRadius = '40px'; 
-            img.style.padding = '0px';      
-            // اللمعة الفضية اللي بتظهر لما تكبر
-            img.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+        // تنسيق الحواف (Border Radius)
+        if (newWidth > (maxWidth * 0.8)) {
+            video.style.borderRadius = isMobile ? '20px' : '40px'; 
+            video.style.padding = '0px';      
+            video.style.border = '1px solid rgba(255, 255, 255, 0.2)';
         } else {
-            img.style.borderRadius = '25px'; 
-            img.style.padding = '10px';
-            img.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+            video.style.borderRadius = '25px'; 
+            video.style.padding = '10px';
+            video.style.border = '1px solid rgba(255, 255, 255, 0.1)';
         }
     } else {
-        img.classList.remove('img-fixed');
-        img.style.width = '400px';
-        img.style.height = '30vh';
-        img.style.borderRadius = '25px';
-        img.style.padding = '10px';
-        img.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+        video.classList.remove('img-fixed');
+        video.style.width = startWidth + 'px';
+        video.style.height = startHeight + 'vh';
+        video.style.borderRadius = '25px';
+        video.style.padding = '10px';
     }
 });
-
-
-
-
-
 
 
 

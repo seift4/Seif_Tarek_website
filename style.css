@@ -10,6 +10,7 @@
     transform: translateY(0) scale(1); /* يرجع لمكانه وحجمه الطبيعي */
     visibility: visible;
 }
+
 #loader {
   position: fixed;
   top: 0;
@@ -86,6 +87,21 @@
  100% {
   transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
  }
+}
+@media (max-width: 768px) {
+    /* تصغير حجم الـ loader شوية في الموبايل عشان يكون أرق */
+    .spinner {
+        width: 34px;
+        height: 34px;
+    }
+    
+    /* لازم نعدل قيم الـ translateZ عشان المكعب يفضل مظبوط */
+    .spinner div:nth-of-type(1) {
+        transform: translateZ(-17px) rotateY(180deg);
+    }
+    .spinner div:nth-of-type(6) {
+        transform: translateZ(17px);
+    }
 }
 
 .hidden {
@@ -589,6 +605,7 @@ padding-top: 30px;
     will-change: transform, width, height; /* لتحسين الأداء */
 }
 .img-fixed {
+    object-fit: cover; /* أهم سطر للحفاظ على أبعاد الفيديو داخل الإطار */
     z-index: 1;
     position: fixed !important;
     top: 50%;
@@ -1012,7 +1029,7 @@ display: none;
         font-size: 14px;
     }
     #Model{position: relative;
-        left: 70px;
+        left: 80px;
         bottom: 40px;
     }
 
