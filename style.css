@@ -459,7 +459,20 @@ padding-top: 30px;
 
 /* للشاشات الصغيرة جداً (X-Small) */
 @media (max-width: 480px) {
+
+    .nav{ flex-wrap: wrap;
+    }
+    .logo{
+        width: 100px;
+        position: relative;
+        top: 10px;
+        right: 10px;
+    }
+
+
     .nav ul {
+        width: 74%;
+
         gap: 10px;
     }
     .nav ul a {
@@ -610,6 +623,7 @@ padding-top: 30px;
         justify-content: center;
     }
     .text .top {
+        overflow-x: hidden;
         padding: 15px 40px; /* تقليل البادينج عشان الأقواس متخنقش النص */
         max-width: 300px;
         position: relative;
@@ -623,6 +637,7 @@ padding-top: 30px;
         font-size: 16px;
     }
     .bottom {
+        overflow-x: hidden;
     bottom: 0px;
         position: absolute;
         flex-direction: column; /* العناصر تحت بعض */
@@ -634,13 +649,18 @@ padding-top: 30px;
         font-size: 60px; /* حجم مناسب لعرض الموبايل */
         text-align: center;
     }
-    .bottom video, .img-container {
-        width: 90%; /* الفيديو ياخد عرض الشاشة */
+    .img-container {
+        
+        width: 80%; /* الفيديو ياخد عرض الشاشة */
         height: auto;
     }
     .bottom {
         bottom: 0; /* إلغاء الإزاحة السفلية */
     }
+    .img-fixed{
+    overflow-x: hidden;    
+    }
+
 }
 
 
@@ -732,13 +752,13 @@ padding-top: 30px;
 }
 
 .skills-marquee {
+ 
     width: 70%;
     overflow: hidden;
-    padding: 60px 0;
-    background-color: var(--bg-color);
+    padding: 60px 0;;
     margin: 40px 0;
     position: relative;
-    /* تأثير التلاشي من الأطراف */
+    bottom:40px;
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
@@ -811,6 +831,7 @@ padding-top: 30px;
 @media (max-width: 768px) {
 
     .about-section {
+                width: 100%;
         overflow-x: hidden;
         height: auto; /* عشان المحتوى ميتزنقش في الموبايل */
         min-height: 100vh;
@@ -858,7 +879,8 @@ padding-top: 30px;
         font-size: 35px; /* تصغير الأيقونات قليلاً */
     }
         #my{
-            display: none;
+            position:absolute;
+            top: 285px;
     }
 }
 /*  */
@@ -945,6 +967,7 @@ padding-top: 30px;
 /* للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
     .work-section {
+        width: 100%;
         height: auto;
         min-height: 80vh;
         margin-top: 50vh; /* تقليل المسافة في الموبايل */
@@ -1130,6 +1153,7 @@ display: none;
 /* للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
     .seif-section {
+                width: 100%;
         height: auto;
         min-height: 80vh;
         margin-top: 50vh; /* تقليل المسافة في الموبايل */
@@ -1590,7 +1614,7 @@ fill: black;
         font-size: 50px; /* تصغير العنوان */
     }
     .row {
-        margin-left: 0;
+        margin-left: 15px;
         width: 90%;
         height: auto; /* عشان النص ميبقاش فوق بعضه */
     }
