@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
     /* z-index يفضل قيمة كبيرة ثابتة لكن منطقية */
-    z-index: 999999;
+    z-index: 99999999999999999999999999999999999999999999999;
 }
 
 /* Spinner Sizes */
@@ -317,7 +317,7 @@ img {
 /* الهيدر والـ Nav */
 .nav {
     position: fixed;
-    z-index: 1000000;
+    z-index: 1999000;
     background-color: rgba(16, 19, 24, 0.53); /* #10131886 */
     padding-top: 1.875rem; /* 30px */
     display: flex;
@@ -947,7 +947,6 @@ body{
 
 @media (max-width: 768px) {
     .work-section {
-        width: 100%;
         height: auto;
         min-height: 100vh;
         margin-top: 50vh;
@@ -996,7 +995,6 @@ body{
         margin: 2rem auto;
         width: 100%;
         max-width: 400px; /* حجم مناسب للـ 3D Model */
-   display: none;
     }
 }
 
