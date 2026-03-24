@@ -953,6 +953,7 @@ body{
     .work-section {
         width: auto;
         height: auto;
+      
         min-height: 100vh;
         margin-top: 50vh;
         padding: 2.5rem 1rem;
@@ -966,7 +967,7 @@ body{
     .sec2 {
 
         position: relative;
-        left: 15PX;
+    right: 35PX;
  /* تصفير الإزاحة القاتلة للتصميم */
         display: flex;
         flex-direction: column;
@@ -996,10 +997,11 @@ body{
 
     #Model {
         position: relative;
-        left: 20PX;
+        right: 40PX;
+        bottom: 60px;
         margin: 2rem auto;
         width: 100%;
-        max-width: 400px; /* حجم مناسب للـ 3D Model */
+        max-width: 300px; /* حجم مناسب للـ 3D Model */
     }
 }
 
@@ -1194,15 +1196,13 @@ display: none;
         font-size: 14px;
     }
     #seif{
-        right:100px;
-        left: 85px;
         width: 400PX;
         height: 480PX;
 
     }
     .front{
         position: relative;
-        right: 30px;
+        right: 20px;
     }
 
 }
