@@ -150,7 +150,7 @@ overflow: hidden; /* مهم جداً عشان الفيديو ميتخطاش حد
 
 /* الكلاس اللي هيتضاف لما نلمس الفيديو */
 .cursor-dot.cursor-logo {
-  width: 70px; /* صغرت العرض شوية لأن الأيقونة مش محتاجة مساحة الكلمة */
+  width: 70px;
   height: 70px;
   mix-blend-mode: normal;
   background-color: #000000ed;
@@ -162,14 +162,11 @@ overflow: hidden; /* مهم جداً عشان الفيديو ميتخطاش حد
   border-radius: 50%; /* خليتها دائرية عشان تليق مع الأيقونة */
 }
 
-/* تعديل الـ Pseudo-element ليعرض الأيقونات */
+
 .cursor-dot.cursor-logo::before {
-  /* استدعاء فونت الأيقونات */
   font-family: 'Material Symbols Outlined';
-  content: var(--cursor-icon, 'volume_down'); /* القيمة الافتراضية أيقونة الصوت */
-  font-size: 32px; /* حجم الأيقونة */
-  color: #fff;
-  /* إلغاء خصائص النصوص القديمة */
+  content: var(--cursor-icon, 'volume_down'); 
+  font-size: 32px; 
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
@@ -177,47 +174,38 @@ overflow: hidden; /* مهم جداً عشان الفيديو ميتخطاش حد
   direction: ltr;
 }
 
-
-
-
-/* تنسيق عام للفيديوهات جوه الكرسر */
 .cursor-dot video {
-  display: none; /* مخفيين كلهم في البداية */
+  display: none; 
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* الفيديو الأول - R1 */
 .cursor-dot.cursor-r1 {
   width: 310px; height: 160px;
   background-color: transparent; border-radius: 0; box-shadow: none;
 }
 .cursor-dot.cursor-r1 .v1 { display: block; }
 
-/* الفيديو الثاني - R2 */
 .cursor-dot.cursor-r2 {
   width: 310px; height: 160px;
   background-color: transparent; border-radius: 0; box-shadow: none;
 }
 .cursor-dot.cursor-r2 .v2 { display: block; }
 
-/* الفيديو الثالث - R3 */
 .cursor-dot.cursor-r3 {
   width: 310px; height: 160px;
   background-color: transparent; border-radius: 0; box-shadow: none;
 }
 .cursor-dot.cursor-r3 .v3 { display: block; }
 
-/* الفيديو الرابع - R4 */
+
 .cursor-dot.cursor-r4 {
   width: 310px; height: 160px;
   background-color: transparent; border-radius: 0; box-shadow: none;
 }
 .cursor-dot.cursor-r4 .v4 { display: block; }
 
-
-/* الفيديو الرابع - R5 */
 .cursor-dot.cursor-r5 {
   width: 310px; height: 160px;
   background-color: transparent; border-radius: 0; box-shadow: none;
