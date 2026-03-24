@@ -319,15 +319,16 @@ img {
     position: fixed;
     z-index: 1999000;
     background-color: rgba(16, 19, 24, 0.53); /* #10131886 */
-    padding-top: 1.875rem; /* 30px */
+    padding-top: 1rem; /* 30px */
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 10vh;
 }
 
 .nav ul {
+    margin-right: 20px;
     list-style: none;
     display: flex;
     gap: 2.5rem; /* 40px مسافة متوازنة */
@@ -409,8 +410,8 @@ transition: .5s;
 /* اللوجو */
 .logo {
     position: relative;
-    bottom: 1.25rem; /* تعديل بسيط ليتناسب مع الـ flex */
-    width: 10.9375rem; /* 175px */
+    bottom: .15rem; /* تعديل بسيط ليتناسب مع الـ flex */
+    width: 8rem; /* 175px */
     height: auto;
 }
 
@@ -947,6 +948,7 @@ body{
 
 @media (max-width: 768px) {
     .work-section {
+        width: auto;
         height: auto;
         min-height: 100vh;
         margin-top: 50vh;

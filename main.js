@@ -70,28 +70,30 @@ revealOnScroll();
 
 
 
-
 window.addEventListener('scroll', function() {
     const video = document.querySelector('.bottom video');
-    const scrollValue = window.scrollY;
-    
-    // تحديد عرض الموبايل (عادة أقل من 768px)
-    const isMobile = window.innerWidth < 768;
+    if (!video) return;
 
-    // القيم الابتدائية بناءً على نوع الجهاز
-    const startWidth = isMobile ? window.innerWidth * 0.8 : 400; // 80% من الشاشة للموبايل
+    const scrollValue = window.scrollY;
+    const winWidth = window.innerWidth;
+    const isMobile = winWidth < 768;
+
+    // القيم الابتدائية
+    const startWidth = isMobile ? winWidth * 0.8 : 400;
     const startHeight = isMobile ? 20 : 30; // vh
 
     if (scrollValue > 50) { 
         if (!video.classList.contains('img-fixed')) {
             video.classList.add('img-fixed');
+            // منع السكرول العرضي أو المشاكل البصرية وقت التكبير
+            document.body.style.overflowX = 'hidden'; 
         }
         
         // حساب الزيادة تدريجياً
         let newWidth = startWidth + (scrollValue * 1.5); 
         let newHeight = startHeight + (scrollValue * 0.1); 
 
-        const maxWidth = window.innerWidth * 0.97;
+        const maxWidth = winWidth * 0.97;
         const maxHeight = 90; 
 
         if (newWidth > maxWidth) newWidth = maxWidth;
@@ -112,15 +114,15 @@ window.addEventListener('scroll', function() {
         }
     } else {
         video.classList.remove('img-fixed');
+        // إرجاع الـ overflow لطبيعته لما الفيديو يرجع لمكانه
+        document.body.style.overflowX = 'auto'; 
+        
         video.style.width = startWidth + 'px';
         video.style.height = startHeight + 'vh';
         video.style.borderRadius = '25px';
         video.style.padding = '10px';
     }
 });
-
-
-
 
 
 
