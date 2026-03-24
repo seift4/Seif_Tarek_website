@@ -963,7 +963,7 @@ body{
     .sec2 {
 
         position: relative;
-        right: 15PX;
+        left: 15PX;
  /* تصفير الإزاحة القاتلة للتصميم */
         display: flex;
         flex-direction: column;
@@ -973,7 +973,7 @@ body{
 
     .sec2 h1 {     
                 position: relative;
-        right: 25PX; 
+        right: 2PX; 
         font-size: 1.5625rem; /* 25px */
               margin-right: 60px;
               margin-left: 0;
@@ -993,7 +993,7 @@ body{
 
     #Model {
         position: relative;
-        right: 25PX;
+        left: 20PX;
         margin: 2rem auto;
         width: 100%;
         max-width: 400px; /* حجم مناسب للـ 3D Model */
@@ -1677,7 +1677,17 @@ fill: black;
     background-clip: text;
 }
 
+.p2{
+        position: relative;
+    left: 700px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
+    margin-top: 50px;
+    font-size: 40px;
+    width: 810px;
+    text-align: start;
+    word-spacing: -5px;
+    margin-bottom: 80px;
 
+}
 .contact{
         margin-left: 190px;
         border-top: solid 1px rgb(154, 150, 150);

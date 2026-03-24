@@ -78,32 +78,33 @@ window.addEventListener('scroll', function() {
     const winWidth = window.innerWidth;
     const isMobile = winWidth < 768;
 
-    // القيم الابتدائية
-    const startWidth = isMobile ? winWidth * 0.8 : 400;
-    const startHeight = isMobile ? 20 : 30; // vh
+    // القيم الابتدائية بالـ vw
+    // الموبايل يبدأ بـ 80vw، الديسكتوب 400px نحولها لنسبة مئوية من العرض
+    const startWidthVW = isMobile ? 80 : (400 / winWidth) * 100; 
+    const startHeightVH = isMobile ? 20 : 30;
 
     if (scrollValue > 50) { 
         if (!video.classList.contains('img-fixed')) {
             video.classList.add('img-fixed');
-            // منع السكرول العرضي أو المشاكل البصرية وقت التكبير
             document.body.style.overflowX = 'hidden'; 
         }
         
-        // حساب الزيادة تدريجياً
-        let newWidth = startWidth + (scrollValue * 1.5); 
-        let newHeight = startHeight + (scrollValue * 0.1); 
+        // حساب الزيادة بالـ vw تدريجياً
+        // scrollValue * 0.2 مثلاً عشان الزيادة تكون ناعمة بالوحدات الكبيرة
+        let newWidthVW = startWidthVW + (scrollValue * 0.15); 
+        let newHeightVH = startHeightVH + (scrollValue * 0.1); 
 
-        const maxWidth = winWidth * 0.97;
-        const maxHeight = 90; 
+        const maxWidthVW = 97; // أقصى عرض 97% من الشاشة
+        const maxHeightVH = 90; 
 
-        if (newWidth > maxWidth) newWidth = maxWidth;
-        if (newHeight > maxHeight) newHeight = maxHeight;
+        if (newWidthVW > maxWidthVW) newWidthVW = maxWidthVW;
+        if (newHeightVH > maxHeightVH) newHeightVH = maxHeightVH;
 
-        video.style.width = newWidth + 'px';
-        video.style.height = newHeight + 'vh';
+        video.style.width = newWidthVW + 'vw';
+        video.style.height = newHeightVH + 'vh';
 
-        // تنسيق الحواف (Border Radius)
-        if (newWidth > (maxWidth * 0.8)) {
+        // تنسيق الحواف بناءً على نسبة الامتلاء
+        if (newWidthVW > 85) {
             video.style.borderRadius = isMobile ? '20px' : '40px'; 
             video.style.padding = '0px';      
             video.style.border = '1px solid rgba(255, 255, 255, 0.2)';
@@ -114,11 +115,10 @@ window.addEventListener('scroll', function() {
         }
     } else {
         video.classList.remove('img-fixed');
-        // إرجاع الـ overflow لطبيعته لما الفيديو يرجع لمكانه
         document.body.style.overflowX = 'auto'; 
         
-        video.style.width = startWidth + 'px';
-        video.style.height = startHeight + 'vh';
+        video.style.width = startWidthVW + 'vw';
+        video.style.height = startHeightVH + 'vh';
         video.style.borderRadius = '25px';
         video.style.padding = '10px';
     }
