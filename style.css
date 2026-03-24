@@ -621,10 +621,13 @@ transition: .5s;
 
 /* للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
+    .home{
+        overflow-x: hidden;
+    }
     .bottom {
         flex-direction: column; /* ترتيب العناصر تحت بعض */
         align-items: center;
-        gap: 40px;
+        gap: 10px;
         margin-top: 0; /* إلغاء الـ negative margin عشان ميحصلش تداخل */
         padding: 40px 0;
         min-height: auto;
