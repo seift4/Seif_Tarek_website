@@ -189,7 +189,7 @@ videoE.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-v
 gsap.registerPlugin(ScrollTrigger);
 
 // 1. بنحدد كل العناصر اللي عايزين نطبق عليها الأنميشن
-const elements = document.querySelectorAll(".foter .p2, .p");
+const elements = document.querySelectorAll(".p");
 
 elements.forEach((el) => {
   gsap.to(el, {
