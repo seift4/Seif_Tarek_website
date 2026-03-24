@@ -414,7 +414,6 @@ transition: .5s;
     height: auto;
 }
 
-/* التجاوب مع الشاشات (Responsive) */
 /* --- الجزء الخاص بالتجاوب (Responsive) --- */
 
 /* للشاشات المتوسطة (Tablets) */
@@ -433,8 +432,7 @@ transition: .5s;
     .nav {
         height: auto;
         padding: 0.8rem 1rem;
-        flex-direction: row; /* الحفاظ على اللوجو والمنيو في سطر واحد */
-        justify-content: space-between;
+
     }
 
     .logo {
@@ -443,7 +441,7 @@ transition: .5s;
     }
 
     .nav ul {
-        gap: 0.8rem; /* مسافات ضيقة تناسب الموبايل */
+        gap: 1rem; /* مسافات ضيقة تناسب الموبايل */
     }
 
     .nav ul a {
@@ -453,7 +451,7 @@ transition: .5s;
     /* ضبط الأقواس في الموبايل عشان متخبطش في اللينكات المجاورة */
     .nav ul a::before, 
     .nav ul a::after {
-        width: 25px; /* تصغير عرض القوس للنص */
+        width: 25px; /* تصغير عرض القوس */
         height: 4vh;
         top: -10px;
     }
@@ -464,21 +462,25 @@ transition: .5s;
 
 /* للشاشات الصغيرة جداً (X-Small) */
 @media (max-width: 480px) {
-    .logo{
-        position: relative;
-        right: 15px;
-        top: 8px;
+    .nav{
+                padding: 0;
+        width: 100%;
+        margin: 0;
     }
     .nav ul {
-        margin-right: 40px;
-        gap: 1.5rem;
+        margin-right: 15px;
+        gap: 1rem;
     }
     .nav ul a {
-        font-size: 0.75rem; /* تصغير أكتر للشاشات الرفيعة */
+        font-size: 0.8rem; /* تصغير أكتر للشاشات الرفيعة */
     }
+    .logo{
+        position: relative;
+        top: 5px;
+    }
+    /* إخفاء الأقواس في الشاشات المتناهية الصغر لتجنب الزحمة البصرية */
 
 }
-
 
 /* قسم النصوص */
 .text {
@@ -994,6 +996,7 @@ body{
         margin: 2rem auto;
         width: 100%;
         max-width: 400px; /* حجم مناسب للـ 3D Model */
+   display: none;
     }
 }
 
