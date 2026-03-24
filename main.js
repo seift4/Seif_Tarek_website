@@ -257,24 +257,24 @@ el.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-activ
 
 
 
-const videoElement = document.querySelector('#myModel');
-const cursorD = document.querySelector('.cursor-dot');
+// const videoElement = document.querySelector('#myModel');
+// const cursorD = document.querySelector('.cursor-dot');
 
-if (videoElement) {
-    videoElement.addEventListener('mouseenter', () => {
-        cursorD.classList.add('cursor-logo');
-        updateCursorIcon(); // نحدث الأيقونة فور الدخول
-    });
+// if (videoElement) {
+//     videoElement.addEventListener('mouseenter', () => {
+//         cursorD.classList.add('cursor-logo');
+//         updateCursorIcon(); // نحدث الأيقونة فور الدخول
+//     });
 
-    videoElement.addEventListener('mouseleave', () => {
-        cursorD.classList.remove('cursor-logo');
-    });
+//     videoElement.addEventListener('mouseleave', () => {
+//         cursorD.classList.remove('cursor-logo');
+//     });
 
-    videoElement.addEventListener('click', () => {
-        videoElement.muted = !videoElement.muted;
-        updateCursorIcon();
-    });
-}
+//     videoElement.addEventListener('click', () => {
+//         videoElement.muted = !videoElement.muted;
+//         updateCursorIcon();
+//     });
+// }
 
 // وظيفة لتحديث الأيقونة داخل الكرسر
 function updateCursorIcon() {
