@@ -954,10 +954,7 @@ body{
     }
     
     .gallary {
-        width: 100%;
-        margin-top: 2rem;
-        /* لو عايز تظهر الجاليري في الموبايل بشكل طولي، امسح display: none */
-        display: block; 
+        display: none; 
     }
 
     .sec2 {
