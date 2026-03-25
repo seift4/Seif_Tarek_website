@@ -713,10 +713,10 @@ body{
     z-index: 100; 
     background: #e1ff8e; 
     background-image: 
-        radial-gradient(at 0% 0%, rgba(15, 13, 13, 0.989) 0px, transparent 40%), 
+        radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.989) 0px, transparent 40%), 
         radial-gradient(at 100% 100%,  rgb(0, 0, 0) 0px, transparent 40%);
     background-size: 200% 200%;
-    animation: moveGlow 3s ease infinite;
+    animation: moveGlow 10s ease infinite;
 }
 
 .content {
@@ -905,7 +905,7 @@ body{
         radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.989) 0px, transparent 40%), 
         radial-gradient(at 100% 100%, rgb(255, 255, 255) 0px, transparent 40%);
     background-size: 200% 200%;
-    animation: moveGlow 3s ease infinite;
+    animation: moveGlow 8s ease infinite;
     height: 98vh;
 }
 
