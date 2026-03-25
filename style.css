@@ -416,7 +416,12 @@ transition: .5s;
 }
 
 /* --- الجزء الخاص بالتجاوب (Responsive) --- */
-
+@media (max-width: 1600px) {
+    .nav ul span{
+        position: relative;
+        bottom: 8px;
+    }
+}
 /* للشاشات المتوسطة (Tablets) */
 @media (max-width: 1024px) {
     .nav {
@@ -610,9 +615,12 @@ transition: .5s;
 /* --- جزء التجاوب المكمل لأكوادك --- */
 
 /* للشاشات المتوسطة (Tablets) */
-@media (max-width: 1024px) {
+@media (max-width: 1600px) {
+    .home{
+        gap: 0;
+    }
     .bottom p {
-        font-size: 150px; /* تصغير الكلمة الضخمة شوية عشان متخرجش بره */
+        font-size: 170px; /* تصغير الكلمة الضخمة شوية عشان متخرجش بره */
     }
     .bottom video {
         width: 320px; /* تصغير عرض الفيديو ليناسب التابلت */
@@ -1751,7 +1759,14 @@ fill: black;
 }
 
 
+@media (max-width: 1600px) {
+    .foter{
+        height: 120vh;
+    }
+    .name{margin: 0;
 
+    }
+}
 
 /* --- تعديلات التجاوب لسكشن الـ Footer --- */
 
