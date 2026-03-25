@@ -319,27 +319,23 @@ card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
 
 
 
-
-// 6. شاشة التحميل (Loader)
-
 const loader = document.getElementById("loader");
 
 if (loader) {
+    // بنستخدم 'load' عشان نضمن إن كل حاجة جاهزة
+    window.addEventListener("load", () => {
+        // 1. قلل الـ 1000 لـ 100 أو شيلها خالص لو عايز سرعة صاروخية
+        setTimeout(() => {
+            loader.style.opacity = "0";
+            loader.style.transition = "opacity 0.5s ease"; // تأكد إن فيه ترانزيشن في الـ CSS
 
-window.addEventListener("load", () => {
-
-setTimeout(() => {
-
-loader.style.opacity = "0";
-
-setTimeout(() => loader.style.display = "none", 500);
-
-}, 1000);
-
-});
-
+            // 2. اخفيه تماماً بعد ما الأنيميشن يخلص
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500); 
+        }, 100); // تأخير بسيط جداً لراحة العين بس
+    });
 }
-
 
 
 // 5. الـ Marquee

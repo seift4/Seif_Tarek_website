@@ -337,24 +337,12 @@ img {
 .nav ul a {
     text-decoration: none;
     position: relative;
-    color: #A5A6A8;
+    color: #ffffff;
     transition: 0.5s;
     font-size: 1.25rem; /* 20px */
 }
 
-.nav ul a {
 
-text-decoration: none;
-
-position: relative;
-
-color: #A5A6A8;
-
-transition: 0.5s;
-
-font-size: 20px;
-
-}
 
 
 
@@ -395,17 +383,18 @@ border-radius: 0 50% 50% 0; /* انحناء لجهة اليمين */
 opacity: 0;
 transition: .5s;
 }
-.nav ul a.active::before,
+
 .nav ul a:hover::before,
-.nav ul a.active::after,
 .nav ul a:hover::after {
     opacity: 1;
+} 
+.nav ul a.active{
+    color:#e1ff8e;
+    border-bottom:solid 1px #e1ff8e ;
+    padding-bottom: 7px;
+
 }
 
-.nav ul a.active,
-.nav ul a:hover {
-    color: white;
-}
 
 /* اللوجو */
 .logo {
@@ -1495,7 +1484,7 @@ fill: black;
     width: 80%;
     border-top: solid 0.0625rem rgb(150, 143, 143); /* 1px */
     margin-left: 10%; /* توحيد الهامش مع العنوان */
-    transition: all 1.5s ease;
+    transition: all 1s ease;
     position: relative;
     border-radius: 0.625rem; /* 10px */
     background-image: linear-gradient(#e1ff8e, #e1ff8e);
